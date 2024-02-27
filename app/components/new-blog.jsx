@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const NewBlogPage = () => {
@@ -7,6 +8,7 @@ const NewBlogPage = () => {
 	const [body, setBody] = useState('');
 	const [author, setAuthor] = useState('mario');
 	const [isPending, setIsPending] = useState(false);
+	const router = useRouter();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -14,14 +16,14 @@ const NewBlogPage = () => {
 
 		setIsPending(true);
 
-		let response = await fetch('http://localhost:8000/blogs/', {
+		fetch('http://localhost:8000/blogs/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(blog),
-		});
-		if (response.status == 200) {
+		}).then(() => {
 			setIsPending(false);
-		}
+			router.push('/');
+		});
 	};
 
 	return (
@@ -47,8 +49,8 @@ const NewBlogPage = () => {
 					/>
 					<label htmlFor="author">Blog title:</label>
 					<select value={author} onChange={(e) => setAuthor(e.target.value)} id="author">
-						<option value="mario">mario</option>
-						<option value="yoshi">yoshi</option>
+						<option value="vova">Vova</option>
+						<option value="nastya">Nastya</option>
 					</select>
 					{!isPending && <button>Add blog</button>}
 					{isPending && <button disabled>Additing blog...</button>}

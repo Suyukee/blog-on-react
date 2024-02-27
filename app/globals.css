@@ -71,11 +71,13 @@ a {
 .blog-details h2 {
 	font-size: 20px;
 	color: #f1356d;
-	margin-bottom: 10px;
+	margin: 20px 0 10px;
 }
 
 .blog-details div {
 	margin: 20px 0;
+	text-align: justify;
+	white-space: pre-line;
 }
 
 .blog-details button {
@@ -85,6 +87,7 @@ a {
 	padding: 8px;
 	border-radius: 8px;
 	cursor: pointer;
+	font-size: 16px;
 }
 
 /* create new blog form */
@@ -111,6 +114,7 @@ a {
 	border: 1px solid #ddd;
 	box-sizing: border-box;
 	display: block;
+	font-family: Arial;
 }
 .create button {
 	background: #f1356d;
@@ -119,4 +123,5 @@ a {
 	padding: 8px;
 	border-radius: 8px;
 	cursor: pointer;
+	font-size: 16px;
 }

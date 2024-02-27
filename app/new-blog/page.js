@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+import Header from '../components/header';
 import NewBlogPage from '../components/new-blog';
 
 export default function NewBlog() {
