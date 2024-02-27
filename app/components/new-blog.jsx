@@ -6,7 +6,7 @@ import { useState } from 'react';
 const NewBlogPage = () => {
 	const [title, setTitle] = useState('');
 	const [body, setBody] = useState('');
-	const [author, setAuthor] = useState('mario');
+	const [author, setAuthor] = useState('vova');
 	const [isPending, setIsPending] = useState(false);
 	const router = useRouter();
 
