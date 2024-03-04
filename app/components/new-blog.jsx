@@ -16,7 +16,7 @@ const NewBlogPage = () => {
 
 		setIsPending(true);
 
-		fetch('http://https://blog-on-react-data.onrender.com/blogs/', {
+		fetch('https://blog-on-react-data.onrender.com/blogs/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(blog),
