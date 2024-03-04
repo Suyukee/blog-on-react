@@ -4,11 +4,15 @@ import { useRouter } from 'next/navigation';
 import useFetch from './use-fetch';
 
 const BlogDetailsPage = ({ id }) => {
-	const { data: blog, isPending, error } = useFetch('http://localhost:8000/blogs/' + id);
+	const {
+		data: blog,
+		isPending,
+		error,
+	} = useFetch('http://https://blog-on-react-data.onrender.com/blogs/' + id);
 	const router = useRouter();
 
 	const handleDelete = () => {
-		fetch('http://localhost:8000/blogs/' + blog.id, {
+		fetch('http://https://blog-on-react-data.onrender.com/blogs/' + blog.id, {
 			method: 'DELETE',
 		}).then(() => {
 			router.push('/');
