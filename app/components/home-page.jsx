@@ -8,7 +8,7 @@ const HomePage = () => {
 		data: blogs,
 		isPending,
 		error,
-	} = useFetch('http://https://blog-on-react-data.onrender.com/blogs');
+	} = useFetch('https://blog-on-react-data.onrender.com/blogs');
 	return (
 		<main className="content">
 			{error && <div>{error}</div>}

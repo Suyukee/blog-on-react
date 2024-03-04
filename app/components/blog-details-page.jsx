@@ -8,11 +8,11 @@ const BlogDetailsPage = ({ id }) => {
 		data: blog,
 		isPending,
 		error,
-	} = useFetch('http://https://blog-on-react-data.onrender.com/blogs/' + id);
+	} = useFetch('https://blog-on-react-data.onrender.com/blogs/' + id);
 	const router = useRouter();
 
 	const handleDelete = () => {
-		fetch('http://https://blog-on-react-data.onrender.com/blogs/' + blog.id, {
+		fetch('https://blog-on-react-data.onrender.com/blogs/' + blog.id, {
 			method: 'DELETE',
 		}).then(() => {
 			router.push('/');
