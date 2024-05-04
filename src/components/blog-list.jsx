@@ -1,4 +1,4 @@
-const BlogList = ({ blogs }) => {
+export default function BlogList({ blogs }) {
 	return (
 		<article>
 			<h2>All blogs</h2>
@@ -12,6 +12,4 @@ const BlogList = ({ blogs }) => {
 			))}
 		</article>
 	);
-};
-
-export default BlogList;
+}

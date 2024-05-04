@@ -1,4 +1,4 @@
-const Preloader = () => {
+export default function Preloader() {
 	return (
 		<main className="preloader">
 			<h2 className="preloader__title">Loading</h2>
@@ -39,6 +39,4 @@ const Preloader = () => {
 			</svg>
 		</main>
 	);
-};
-
-export default Preloader;
+}

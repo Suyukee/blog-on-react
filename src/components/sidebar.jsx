@@ -1,4 +1,4 @@
-const Sidebar = ({ isClick, toggleSidebar }) => {
+export default function Sidebar({ toggleSidebar }) {
 	return (
 		<aside className="sidebar">
 			<div className="sidebar__menu-btn">
@@ -17,6 +17,4 @@ const Sidebar = ({ isClick, toggleSidebar }) => {
 			</div>
 		</aside>
 	);
-};
-
-export default Sidebar;
+}

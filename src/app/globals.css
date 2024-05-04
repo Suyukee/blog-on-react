@@ -89,6 +89,10 @@ a {
 	margin: 20px 0 10px;
 }
 
+.blog-details__author {
+	font-style: italic;
+}
+
 .blog-details__blog-body {
 	margin: 20px 0;
 	text-align: justify;
@@ -157,6 +161,7 @@ a {
 	height: 100vh;
 	background: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	z-index: 1;
 }
 
 .sidebar__menu-btn {

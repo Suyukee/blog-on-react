@@ -3,13 +3,10 @@
 import BlogList from './blog-list';
 import Preloader from './preloader';
 import useFetch from './use-fetch';
+import { SERVER_URL } from '@/utils/constants';
 
-const HomePage = () => {
-	const {
-		data: blogs,
-		isPending,
-		error,
-	} = useFetch('https://blog-on-react-data.onrender.com/blogs');
+export default function HomePage() {
+	const { data: blogs, isPending, error } = useFetch(SERVER_URL);
 	return (
 		<main className="content">
 			{error && <div>{error}</div>}
@@ -17,6 +14,4 @@ const HomePage = () => {
 			{blogs && <BlogList blogs={blogs} />}
 		</main>
 	);
-};
-
-export default HomePage;
+}

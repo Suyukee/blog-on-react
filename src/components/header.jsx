@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Sidebar from './sidebar';
 
-const Header = () => {
+export default function Header() {
 	const [isClick, setIsClick] = useState(false);
 	const toggleSidebar = () => {
 		setIsClick(!isClick);
@@ -30,10 +30,8 @@ const Header = () => {
 						</svg>
 					</button>
 				</div>
-				{isClick && <Sidebar isClick={isClick} toggleSidebar={toggleSidebar} />}
+				{isClick && <Sidebar toggleSidebar={toggleSidebar} />}
 			</nav>
 		</header>
 	);
-};
-
-export default Header;
+}

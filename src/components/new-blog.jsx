@@ -2,8 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { SERVER_URL } from '@/utils/constants';
 
-const NewBlogPage = () => {
+export default function NewBlogPage() {
 	const [title, setTitle] = useState('');
 	const [body, setBody] = useState('');
 	const [author, setAuthor] = useState('Vova');
@@ -13,17 +14,18 @@ const NewBlogPage = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const blog = { title, body, author };
-
 		setIsPending(true);
 
-		fetch('https://blog-on-react-data.onrender.com/blogs/', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(blog),
-		}).then(() => {
+		try {
+			await fetch(SERVER_URL, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(blog),
+			});
+		} finally {
 			setIsPending(false);
 			router.push('/');
-		});
+		}
 	};
 
 	return (
@@ -58,6 +60,4 @@ const NewBlogPage = () => {
 			</article>
 		</main>
 	);
-};
-
-export default NewBlogPage;
+}

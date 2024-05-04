@@ -3,18 +3,15 @@
 import { useRouter } from 'next/navigation';
 import useFetch from './use-fetch';
 import Preloader from './preloader';
+import { SERVER_URL } from '@/utils/constants';
 
-const BlogDetailsPage = ({ id }) => {
-	const {
-		data: blog,
-		isPending,
-		error,
-	} = useFetch('https://blog-on-react-data.onrender.com/blogs/' + id);
+export default function BlogDetailsPage({ id }) {
+	const { data: blog, isPending, error } = useFetch(SERVER_URL + id);
 
 	const router = useRouter();
 
 	const handleDelete = async () => {
-		await fetch('https://blog-on-react-data.onrender.com/blogs/' + blog.id, {
+		await fetch(SERVER_URL + blog.id, {
 			method: 'DELETE',
 		});
 		router.push('/');
@@ -27,7 +24,7 @@ const BlogDetailsPage = ({ id }) => {
 			{blog && (
 				<article className="content__blog-details">
 					<h2 className="blog-details__blog-title">{blog.title}</h2>
-					<p>Written by {blog.author}</p>
+					<p className="blog-details__author">Written by {blog.author}</p>
 					<div className="blog-details__blog-body">{blog.body}</div>
 					<button className="blog-details__delete-btn" onClick={handleDelete}>
 						Delete blog
@@ -36,6 +33,4 @@ const BlogDetailsPage = ({ id }) => {
 			)}
 		</main>
 	);
-};
-
-export default BlogDetailsPage;
+}
